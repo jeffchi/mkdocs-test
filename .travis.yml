@@ -8,8 +8,7 @@ install:
     - pip install -r requirements.txt
 before_deploy:
   - mkdocs build
-  - git config user.name 'runhc'
-  - git config user.email 'runhc@cn.ibm.com'
+  - git config user.name 'jeffchi'
 deploy:
   skip_cleanup: true
   provider: script
@@ -17,4 +16,3 @@ deploy:
   script: mkdocs gh-deploy --force
   on:
     branch: master
-
