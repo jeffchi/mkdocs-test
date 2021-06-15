@@ -1,0 +1,20 @@
+language: Python
+python: 3.7
+sudo: false
+branches: master
+script: true
+install:
+    - pip install mkdocs mkdocs-material pymdown-extensions pygments
+    - pip install -r requirements.txt
+before_deploy:
+  - mkdocs build
+  - git config user.name 'runhc'
+  - git config user.email 'runhc@cn.ibm.com'
+deploy:
+  skip_cleanup: true
+  provider: script
+  target_branch: gh-pages
+  script: mkdocs gh-deploy --force
+  on:
+    branch: master
+
