@@ -15,6 +15,7 @@ deploy:
   provider: script
   skip_cleanup: true
   github_token: $GH_TOKEN
-  script: mkdocs gh-deploy --theme=material --force --clean
+  script:
+    - mkdocs gh-deploy --force --clean
   on:
     branch: master
