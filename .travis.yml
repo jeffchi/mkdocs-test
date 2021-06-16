@@ -9,13 +9,13 @@ install:
     - gem install travis
 before_deploy:
   - mkdocs build
-  - travis login --github-token=$GH_TOKEN
-  - travis repos
 deploy:
   provider: script
   skip_cleanup: true
   github_token: $GH_TOKEN
   script:
+    - travis login --github-token=$GH_TOKEN
+    - travis repos
     - mkdocs gh-deploy --force --clean
   on:
     branch: master
