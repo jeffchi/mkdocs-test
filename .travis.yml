@@ -11,7 +11,7 @@ before_deploy:
 deploy:
   provider: script
   skip_cleanup: true
-  github_token: $GITHUB_TOKEN
-  script: mkdocs gh-deploy --theme=mkdocs --force --clean 
+  github_token: $GH_TOKEN
+  script: mkdocs gh-deploy --theme=mkdocs --force --clean
   on:
     branch: master
