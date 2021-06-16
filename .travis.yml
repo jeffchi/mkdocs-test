@@ -10,10 +10,9 @@ before_deploy:
   - mkdocs build
   - git config user.name $GITHUB_USERNAME
 deploy:
-  github_token: $GITHUB_TOKEN
-  skip_cleanup: true
   provider: script
-  target_branch: gh-pages
+  skip_cleanup: true
+  github_token: $GITHUB_TOKEN
   script: mkdocs gh-deploy --force
   on:
     branch: master
