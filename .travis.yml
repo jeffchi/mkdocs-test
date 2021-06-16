@@ -8,8 +8,9 @@ install:
     - pip install -r requirements.txt
 before_deploy:
   - mkdocs build
-  - git config user.name 'jeffchi'
+  - git config user.name $GITHUB_USERNAME
 deploy:
+  github_token: $GITHUB_TOKEN
   skip_cleanup: true
   provider: script
   target_branch: gh-pages
