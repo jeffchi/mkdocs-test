@@ -10,10 +10,11 @@ install:
 before_deploy:
   - mkdocs build
   - travis login --github-token=$GH_TOKEN
+  - travis repos
 deploy:
   provider: script
   skip_cleanup: true
   github_token: $GH_TOKEN
-  script: mkdocs gh-deploy --theme=mkdocs --force --clean
+  script: mkdocs gh-deploy --theme=material --force --clean
   on:
     branch: master
