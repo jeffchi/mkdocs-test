@@ -11,8 +11,9 @@ before_deploy:
   - git config --global user.name $GITHUB_USERNAME
   - mkdocs gh-deploy --force
 deploy:
-  provider: pages
+  provider: script
   skip_cleanup: true
   github_token: $GITHUB_TOKEN
+  script: mkdocs gh-deploy --force
   on:
     branch: master
